@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ShowProducts from '../ShowProducts/ShowProducts';
 
-const Products = () => {
+const Products = (props) => {
     const [products, setProducts] = useState([]);
-
+    // console.log(props);
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
@@ -12,7 +12,7 @@ const Products = () => {
     return (
         <div className="row row-cols-1 row-cols-md-3 g-4">
             {
-                products.map(product => <ShowProducts id={product.id} product={product} />)
+                products.map(product => <ShowProducts id={product.id} product={product} handleAddProduct={props.handleAddProduct} />)
             }
         </div>
     );
