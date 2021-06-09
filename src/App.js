@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Cart from './components/Cart/Cart';
 import { createContext, useState } from 'react';
+import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
 
 export const cartContext = createContext();
 
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path='/cart'>
             <Cart />
+          </Route>
+          <Route path='/confirmOrder'>
+            <ConfirmOrder />
           </Route>
         </Switch>
       </Router>

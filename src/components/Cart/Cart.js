@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../App';
 
 const Cart = () => {
-    // const {cart} = props
-    // console.log(cart.length);
-
     const [cart, setCart] = useContext(cartContext)
+    const {price, title, image} = cart;
 
     const formatNumber = num => {
         const precision = num.toFixed(2);
@@ -16,18 +14,18 @@ const Cart = () => {
     let totalPrice = 0;
     let shippingCost = 0;
 
-    for(let i = 0; i < cart.length; i++){
+    for (let i = 0; i < cart.length; i++) {
         const product = cart[i];
         totalPrice = totalPrice + product.price
     }
 
-    if(totalPrice > 35){
+    if (totalPrice > 35) {
         shippingCost = 0;
     }
-    else if(totalPrice > 15){
+    else if (totalPrice > 15) {
         shippingCost = 4.99;
     }
-    else if(totalPrice > 0){
+    else if (totalPrice > 0) {
         shippingCost = 12.99
     }
 
@@ -36,15 +34,20 @@ const Cart = () => {
 
 
     return (
-        <div>
-            <h4>Order Summary</h4>
-            <p>Items Ordered: <b>{cart.length}</b></p>
-            <p>Product Price:$ <b>{formatNumber(totalPrice)}</b></p>
-            <p><small>Shipping Cost: $ <b>{shippingCost}</b></small></p>
-            <p><small>Tax: $ <b>{tax}</b></small></p>
-            <p>Total Price: $ <b>{grandTotal}</b></p>
-            <br />
-            <Link to="/" className="btn btn-primary">Place Order</Link>
+        <div className="row">
+            <div className="col-sm-8">
+                <h1>Your product: {cart.length}</h1>
+            </div>
+            <div className="col-sm-4">
+                <h1>Your Order Summery</h1>
+                <h5>Items Ordered: <b>{cart.length}</b> </h5>
+                <h5>Products Price: $<b>{formatNumber(totalPrice)}</b></h5>
+                <h5>Shipping Cost: ${shippingCost}</h5>
+                <h5><small>Tax: $ <b>{tax}</b></small></h5>
+                <h4 className="border-top border-secondary">Total Price: $<b>{grandTotal}</b></h4>
+                <br />
+                <Link to="/confirmOrder" className="btn btn-primary" onClick={()=> setCart([])}>Place Order</Link>
+            </div>
         </div>
     );
 };
