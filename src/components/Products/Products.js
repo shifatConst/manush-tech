@@ -6,14 +6,23 @@ const Products = (props) => {
     // console.log(props);
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
-        .then(res => res.json())
-        .then(data => setProducts(data))
+            .then(res => res.json())
+            .then(data => setProducts(data))
     }, [])
     return (
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-            {
-                products.map(product => <ShowProducts id={product.id} product={product} handleAddProduct={props.handleAddProduct} />)
-            }
+        <div>
+            <div className="text-center">
+                {
+                    products.length === 0 && <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                }
+            </div>
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+                {
+                    products.map(product => <ShowProducts key={product.id} product={product} handleAddProduct={props.handleAddProduct} />)
+                }
+            </div>
         </div>
     );
 };

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { cartContext } from '../../App';
 
-const Cart = (props) => {
-    const {cart} = props
+const Cart = () => {
+    // const {cart} = props
     // console.log(cart.length);
+
+    const [cart, setCart] = useContext(cartContext)
 
     const formatNumber = num => {
         const precision = num.toFixed(2);
@@ -12,7 +16,7 @@ const Cart = (props) => {
     let totalPrice = 0;
     let shippingCost = 0;
 
-    for(let i = 0; i< cart.length; i++){
+    for(let i = 0; i < cart.length; i++){
         const product = cart[i];
         totalPrice = totalPrice + product.price
     }
@@ -39,6 +43,8 @@ const Cart = (props) => {
             <p><small>Shipping Cost: $ <b>{shippingCost}</b></small></p>
             <p><small>Tax: $ <b>{tax}</b></small></p>
             <p>Total Price: $ <b>{grandTotal}</b></p>
+            <br />
+            <Link to="/" className="btn btn-primary">Place Order</Link>
         </div>
     );
 };
