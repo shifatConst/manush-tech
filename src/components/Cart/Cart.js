@@ -1,10 +1,12 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../App';
+import RemoveItems from '../RemoveItems/RemoveItems';
+
 
 const Cart = () => {
     const [cart, setCart] = useContext(cartContext)
-    const {price, title, image} = cart;
+    // const {price, title, image} = cart;
 
     const formatNumber = num => {
         const precision = num.toFixed(2);
@@ -36,7 +38,10 @@ const Cart = () => {
     return (
         <div className="row">
             <div className="col-sm-8">
-                <h1>Your product: {cart.length}</h1>
+            <h2>Total Items: {cart.length}</h2>
+                {
+                    cart.map(product => <RemoveItems key={product.id} product={product} />)
+                }
             </div>
             <div className="col-sm-4">
                 <h1>Your Order Summery</h1>

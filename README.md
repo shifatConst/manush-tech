@@ -20,7 +20,8 @@ For run this project to your local system please follow below rules:
 * Used Context API for the users cart.
 * Managed all the route with react-router.
 * Users can add their product to the cart and place order.
-* Calculated the total amount the user has to pay
+* Calculated the total amount the user has to pay.
+* Added spinner while loading the data from api.
 * After placing the order cart will be empty and a confirmation page will appear.
 
 
