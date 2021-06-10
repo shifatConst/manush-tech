@@ -1,5 +1,3 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home/Home';
 import {
   BrowserRouter as Router,
@@ -10,10 +8,13 @@ import Cart from './components/Cart/Cart';
 import { createContext, useState } from 'react';
 import ConfirmOrder from './components/ConfirmOrder/ConfirmOrder';
 
+
 export const cartContext = createContext();
 
 function App() {
+  
   const [cart, setCart] = useState([]);
+
   return (
     <cartContext.Provider value={[cart, setCart]}>
       <Router>

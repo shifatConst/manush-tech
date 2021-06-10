@@ -5,17 +5,14 @@ import './RemoveItems.css';
 const RemoveItems = (props) => {
     const [cart, setCart] = useContext(cartContext);
     const { title, price, image, id } = props.product
-    // const {price, title, image} = cart;
-    // console.log(price, title, image);
-    console.log(title, price, image, id);
 
+    //remove from cart handler
     const handleRemove = (id) => {
-        console.log('remove clicked', id);
         const newCart = cart.filter(pd => pd.id !== id);
         setCart(newCart);
     }
     return (
-        <div className="d-flex">
+        <div className="d-flex m-3">
             <div>
                 <img className="cart-img" src={image} alt="" />
             </div>

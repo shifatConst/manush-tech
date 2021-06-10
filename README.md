@@ -17,12 +17,14 @@ For run this project to your local system please follow below rules:
 
 * Fetch all the product from the given [api](https://fakestoreapi.com/products).
 * All products are shown in grids.
-* Used Context API for the users cart.
+* Used `Context API` for the users cart.
 * Managed all the route with react-router.
 * Users can add their product to the cart and place order.
+* Users can remove their product from the cart.
 * Calculated the total amount the user has to pay.
 * Added spinner while loading the data from api.
 * After placing the order cart will be empty and a confirmation page will appear.
+* If no items available to the cart order button would be disable.
 
 
 ## Technologies

@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart} from '@fortawesome/free-solid-svg-icons'
 
 const ShowProducts = (props) => {
-    // console.log(props);
     const { title, price, image } = props.product;
-    // console.log(props.handleAddProduct);
+
     return (
         <div className="col-sm-3 mt-3 text-center">
             <div className="col">
@@ -14,7 +13,6 @@ const ShowProducts = (props) => {
                     <img src={image} className="card-image-top pd-img" alt="" />
                     <div className="card-body">
                         <h5 className="card-title"> {title} </h5>
-                        {/* <p className="card-text">{description}</p> */}
                         <h2><b>${price}</b></h2>
                     </div>
                     <div>

@@ -1,22 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { cartContext } from '../../App';
-// import Cart from '../Cart/Cart';
 import Navbar from '../Navbar/Navbar';
 import Products from '../Products/Products';
 
-const Home = () => {
-    // const [cart, setCart] = useState([]);
+const Home = () => {    
     const [cart, setCart] = useContext(cartContext)
+
+    //add to cart handler
     const handleAddProduct = (product) => {
-        // console.log("items added", product);
         const newCart = [...cart, product];
         setCart(newCart);
     }
     return (
         <div>
-            <Navbar cart={cart} />
+            <Navbar />
             <Products handleAddProduct={handleAddProduct} />
-            {/* <Cart cart={kart}/> */}
         </div>
     );
 };
