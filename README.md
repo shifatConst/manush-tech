@@ -1,6 +1,6 @@
 # MANUSH-TECHNOLOGY-TASK
 
-[Live Demo](https://www.google.com/)
+[Live Demo](https://manush-tech.web.app/)
 
 ## Project Set Up
 
